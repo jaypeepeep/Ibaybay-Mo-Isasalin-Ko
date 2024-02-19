@@ -1,12 +1,13 @@
 from flask import Flask, render_template, request, jsonify, send_file
 from io import BytesIO
-import test
-import baybayin
+import LatinToBaybayin
+import BaybayinToLatin
+import BaybayinRecognizer
 from PIL import Image
 import base64
 import os
 import centerCanvas, bottomCanvas, topCanvas
-from test2 import PushdownAutomata
+
 
 app = Flask(__name__)
 
@@ -22,7 +23,7 @@ def translit_from_latin_to_baybayin():
         return jsonify({'error': 'Invalid request'}), 400
     input_str = data['input']
 
-    converter = test.LatinToBaybayin()
+    converter = LatinToBaybayin.LatinToBaybayin()
     result = converter.process_input(input_str)
     if converter.state == converter.state == "dead" or converter.state == "consonant" or converter.state == "digraph": # If last input is not in a final state
         result = "Input not available in Baybayin"
@@ -48,7 +49,7 @@ def translit_from_baybayin_to_latin():
     # Replace '||' with a space
     input_str = input_str.replace('||', ' ')
 
-    converter = baybayin.BaybayinToLatin()
+    converter = BaybayinToLatin.BaybayinToLatin()
     result = converter.process_input(input_str, syllabic)
     if converter.state == "start": # If input is only in a start state
         result = "Enter a character"
@@ -87,7 +88,7 @@ def runpy():
     vowel = ["A", "E or I", "O or U"]
 
     # Initialize the Pushdown Automaton
-    automata = PushdownAutomata(syllabic, vowel)
+    automata = BaybayinRecognizer.BaybayinRecognizer(syllabic, vowel)
 
     # Example 1∈
     automata.process_input("centerCanvas", center)
@@ -125,7 +126,7 @@ def capture_canvas():
     # Initialize the Pushdown Automaton
     vowel = ["A", "E", "I", "O", "U"]
     
-    automata = PushdownAutomata(syllabic, vowel)
+    automata = BaybayinRecognizer.BaybayinRecognizer(syllabic, vowel)
     
     if(canvas_id == "centerCanvas"):
         result = centerCanvas.defineCenter(f'img/centerCanvas_output.jpg')

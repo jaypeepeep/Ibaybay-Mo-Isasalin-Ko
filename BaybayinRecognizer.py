@@ -4,7 +4,7 @@ def execute_main_code(center_canvas_symbol, top_canvas_symbol, bottom_canvas_sym
     vowel = ["A", "O or U", "E or I"]
 
     # Initialize the Pushdown Automaton
-    automata = PushdownAutomata(syllabic, vowel)
+    automata = BaybayinRecognizer(syllabic, vowel)
     # Process input for center canvas
     automata.process_input("centerCanvas", center_canvas_symbol)
     # Process input for top canvas
@@ -25,7 +25,7 @@ class InvalidInputConfiguration:
         return f"Error: {self.message}"
 
 # Define a class for the Pushdown Automaton
-class PushdownAutomata:
+class BaybayinRecognizer:
     def __init__(self, syllabic, vowel):
         # Initialize the stack and the allowed syllabic and vowel symbols
         self.stack = []
@@ -147,7 +147,7 @@ if __name__ == "__main__":
     vowel = ["A", "E", "I", "O", "U"]
 
     # Initialize the Pushdown Automaton
-    automata = PushdownAutomata(syllabic, vowel)
+    automata = BaybayinRecognizer(syllabic, vowel)
 
     # Example 1∈
     automata.process_input("centerCanvas", "KA")
