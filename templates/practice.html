@@ -1,79 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
 
-        <link href="static/css/BaybayinDoctrinaClear.ttf" rel="stylesheet">
-        <link href="static/css/BaybayinDoctrinaClear.otf" rel="stylesheet">
-        <link href="static/css/BaybayinDoctrinaKudlit.otf" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tagalog&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/pstyle.css') }}">
-        <title>Isulat mo, Ibaybay ko</title>
-        <style>
-            @font-face {
-                font-family: 'BaybayinDoctrinaClear';
-                src: url('static/css/BaybayinDoctrinaClear.ttf') format('truetype'),
-                    url('static/css/BaybayinDoctrinaClear.otf') format('opentype');
-            }
-            @font-face {
-                font-family: 'BaybayinDoctrinaKudlit';
-                src: url('static/css/BaybayinDoctrinaKudlit.ttf') format('truetype');
-            }
-        </style>
-    </head>
-    <body>
-        <nav class="navbar">
-            <!-- Logo -->
-            
-            <div class="navbar-logo">
-                <a href="{{ url_for('index') }}">
-                    <p class="baybayin-char-logo">A</p>
-                </a>
-                <a href="{{ url_for('index') }}">
-                    <div class="logo">
-                        <img src="{{ url_for('static', filename='css/images/logo3.png') }}" alt="Logo">
-                    </div>
-                </a>
-            </div>
-        
-        
-            <!-- Navigation Links -->
-            <ul class="nav-links">
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('practice') }}">Baybayin Pad</a></li>
-                <li><a href="{{ url_for('about') }}">About</a></li>
-            </ul>
-        </nav>
-        <main>
-            <div id="canvasContainer">
-                <canvas id="topCanvas"></canvas>
-                <hr id="breaklines">
-                <canvas id="centerCanvas"></canvas>
-                <hr id="breaklines">
-                <canvas id="bottomCanvas"></canvas>
-            </div>
-            <div id="canvasOutput">
-                <h1>Let's Practice</h1>
-                <div id="text-cont">
-                    <h2>Output:</h2>
-                    <div id="output-text-container">
-                        <h1 id="output-text"><h1>
-                    </div>
-                <div>
-                <div id="buttons">
-                    <button class="toggle-keyboard-button" id="enter-button">Enter</button>
-                    <button class="toggle-keyboard-button" id="clear-button">Clear</button>
-                </div>
-            </div>
-        </main>
-        <script src="{{ url_for('static', filename='script/languages.js') }}"></script>
-        <script src="{{ url_for('static', filename='script/script.js') }}"></script>
-        <script src="{{ url_for('static', filename='script/practice.js') }}"></script>
-    </body>
+    <link href="static/css/BaybayinDoctrinaClear.ttf" rel="stylesheet" />
+    <link href="static/css/BaybayinDoctrinaClear.otf" rel="stylesheet" />
+    <link href="static/css/BaybayinDoctrinaKudlit.otf" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tagalog&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/pstyle.css') }}"
+    />
+    <title>Isulat mo, Ibaybay ko</title>
+    <style>
+      @font-face {
+        font-family: "BaybayinDoctrinaClear";
+        src: url("static/css/BaybayinDoctrinaClear.ttf") format("truetype"),
+          url("static/css/BaybayinDoctrinaClear.otf") format("opentype");
+      }
+      @font-face {
+        font-family: "BaybayinDoctrinaKudlit";
+        src: url("static/css/BaybayinDoctrinaKudlit.ttf") format("truetype");
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <!-- Logo -->
+
+      <div class="navbar-logo">
+        <a href="{{ url_for('index') }}">
+          <p class="baybayin-char-logo">A</p>
+        </a>
+        <a href="{{ url_for('index') }}">
+          <div class="logo">
+            <img
+              src="{{ url_for('static', filename='css/images/logo3.png') }}"
+              alt="Logo"
+            />
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('practice') }}">Baybayin Pad</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div id="canvasContainer">
+        <canvas id="topCanvas"></canvas>
+        <hr id="breaklines" />
+        <canvas id="centerCanvas"></canvas>
+        <hr id="breaklines" />
+        <canvas id="bottomCanvas"></canvas>
+      </div>
+      <div id="canvasOutput">
+        <h1>Let's write</h1>
+        <div id="text-cont">
+          <h2>Output:</h2>
+          <div id="output-text-container">
+            <h1 id="output-text"></h1>
+          </div>
+        </div>
+        <div id="buttons">
+          <button class="toggle-keyboard-button" id="enter-button">
+            Enter
+          </button>
+          <button class="toggle-keyboard-button" id="clear-button">
+            Clear
+          </button>
+        </div>
+      </div>
+    </main>
+    {% comment %}
+    <div class="baybayin-chart">
+      <h2>Baybayin Chart</h2>
+      <img
+        src="{{ url_for('static', filename='css/images/BaybayinChart.jpg') }}"
+        alt="Baybayin Chart"
+      />
+    </div>
+    {% endcomment %}
+    <script src="{{ url_for('static', filename='script/languages.js') }}"></script>
+    <script src="{{ url_for('static', filename='script/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='script/practice.js') }}"></script>
+  </body>
 </html>
