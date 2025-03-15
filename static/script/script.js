@@ -12,8 +12,8 @@ const space_button = document.querySelector('.space')
 
 // for the dropdown function
 const dropdowns = document.querySelectorAll('.dropdown-container'),
-      inputLangDropdown = document.querySelector('#input-script'),
-      outputLangDropdown = document.querySelector('#output-script');
+    inputLangDropdown = document.querySelector('#input-script'),
+    outputLangDropdown = document.querySelector('#output-script');
 
 // necessary for storing the value to be passed to app.py, also selectedBasedChar for removing the last letter and replacing it with kudlit
 let selectedBaseChar = '';
@@ -54,6 +54,65 @@ buttons.forEach(btn => {
     });
 });
 
+
+//
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Existing keyboard toggle code
+    var baybayinKeyboard = document.querySelector('.card-baybayin-keyboard');
+    var toggleButton = document.getElementById('keyboard-display');
+    const inputLangDropdown = document.getElementById('input-script');
+
+    // Function to update keyboard button state based on selected script
+    function updateKeyboardButtonState() {
+        const inputSelectedValue = inputLangDropdown.querySelector(".selected-script").dataset.value;
+
+        if (inputSelectedValue === "lat") {
+            // Latin script selected - disable keyboard button
+            toggleButton.disabled = true;
+            toggleButton.classList.add('disabled-button');
+
+            // Hide keyboard if it's currently visible
+            if (baybayinKeyboard.classList.contains('visible')) {
+                baybayinKeyboard.classList.remove('visible');
+            }
+        } else {
+            // Baybayin script selected - enable keyboard button
+            toggleButton.disabled = false;
+            toggleButton.classList.remove('disabled-button');
+            baybayinKeyboard.classList.toggle('visible');
+        }
+    }
+
+    // Add click event listener to the toggle button (existing code)
+    if (toggleButton) {
+        toggleButton.addEventListener('click', function () {
+            // Toggle the visibility of the keyboard by adding/removing the 'visible' class
+            baybayinKeyboard.classList.toggle('visible');
+        });
+    }
+
+    // Add listeners to update button state when input script changes
+    const inputDropdownOptions = inputLangDropdown.querySelectorAll(".option");
+    inputDropdownOptions.forEach(item => {
+        item.addEventListener("click", function () {
+            // Allow time for the dropdown change to complete
+            setTimeout(updateKeyboardButtonState, 50);
+        });
+    });
+
+    // Also update when swap button is clicked
+    const swapButton = document.querySelector(".swap-position");
+    if (swapButton) {
+        swapButton.addEventListener("click", function () {
+            // Allow time for the swap to complete
+            setTimeout(updateKeyboardButtonState, 50);
+        });
+    }
+});
+
+//
+
 /* click event for the delete button */
 delete_button.addEventListener('click', () => {
     storedBaybayinChars.pop();
@@ -80,7 +139,7 @@ space_button.addEventListener('click', () => {
     storedBaybayinChars.push(' ');
 })
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const inputLangDropdown = document.getElementById("input-script");
     const outputLangDropdown = document.getElementById("output-script");
     const inputText = document.getElementById("input-text");
@@ -129,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function() {
             inputText.style.fontSize = "40px";
             outputText.style.fontFamily = "";
             outputText.style.fontSize = "";
-        }else{
+        } else {
             outputText.style.fontFamily = "Baybayin";
             outputText.style.fontSize = "40px";
             inputText.style.fontFamily = "";
@@ -172,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 inputText.style.fontSize = "40px";
                 outputText.style.fontFamily = "";
                 outputText.style.fontSize = "";
-            }else{
+            } else {
                 outputText.style.fontFamily = "Baybayin";
                 outputText.style.fontSize = "40px";
                 inputText.style.fontFamily = "";
@@ -213,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 outputText.style.fontSize = "40px";
                 inputText.style.fontFamily = "";
                 inputText.style.fontSize = "";
-            }else{
+            } else {
                 inputText.style.fontFamily = "Baybayin";
                 inputText.style.fontSize = "40px";
                 outputText.style.fontFamily = "";
@@ -235,7 +294,7 @@ function populateDropdown(dropdown, languages) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Set the placeholder text in its original case
     var placeholderText = "Enter Latin Script text here...";
     document.getElementById("input-text").setAttribute("placeholder", placeholderText);
@@ -254,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
     const transliterateButton = document.getElementById("transliterate-button");
     const inputText = document.getElementById("input-text");
@@ -263,7 +322,7 @@ document.addEventListener("DOMContentLoaded", function() {
     transliterateButton.addEventListener("click", () => {
         const inputLangDropdown = document.getElementById("input-script");
         const outputLangDropdown = document.getElementById("output-script");
-        
+
         const inputSelectedValue = inputLangDropdown.querySelector(".selected-script").dataset.value;
         const outputSelectedValue = outputLangDropdown.querySelector(".selected-script").dataset.value;
 
@@ -272,7 +331,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (isLatinToBaybayin || isBaybayinToLatin) {
             const apiEndpoint = isLatinToBaybayin ? '/api/transliterate/latin-to-baybayin' : '/api/transliterate/baybayin-to-latin';
-        
+
             let requestData;
             if (isLatinToBaybayin) {
                 // For Latin to Baybayin, send the entire input from the textarea
@@ -282,7 +341,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     charInput: storedBaybayinChars.join('')
                 };
             }
-        
+
             fetch(apiEndpoint, {
                 method: 'POST',
                 headers: {
@@ -290,26 +349,26 @@ document.addEventListener("DOMContentLoaded", function() {
                 },
                 body: JSON.stringify(requestData)
             })
-            .then(response => response.json())
-            .then(data => {
-                outputText.value = data.result;
-        
-                // Handle styling based on the result
-                if (outputText.value === "Input not available in Baybayin" && isBaybayinToLatin) {
-                    outputText.style.fontFamily = "Baybayin";
-                    outputText.style.fontSize = "40px";
-                    inputText.style.fontFamily = "";
-                    inputText.style.fontSize = "";
-                } else {
-                    outputText.style.color = "";
-                    outputText.style.fontFamily = isLatinToBaybayin ? "Baybayin" : "";
-                }
-            })
-            .catch(error => console.error('Error:', error));
+                .then(response => response.json())
+                .then(data => {
+                    outputText.value = data.result;
+
+                    // Handle styling based on the result
+                    if (outputText.value === "Input not available in Baybayin" && isBaybayinToLatin) {
+                        outputText.style.fontFamily = "Baybayin";
+                        outputText.style.fontSize = "40px";
+                        inputText.style.fontFamily = "";
+                        inputText.style.fontSize = "";
+                    } else {
+                        outputText.style.color = "";
+                        outputText.style.fontFamily = isLatinToBaybayin ? "Baybayin" : "";
+                    }
+                })
+                .catch(error => console.error('Error:', error));
         } else {
             console.error('Invalid conversion selected');
         }
-        
+
     });
 });
 
@@ -337,8 +396,8 @@ function copyToClipboard() {
 document.addEventListener('DOMContentLoaded', function () {
     var rulesMenu = document.querySelector('.rules-menu');
     var rulesContent = document.querySelector('.rules-content');
-    
-    rulesMenu.addEventListener('click', function() {
+
+    rulesMenu.addEventListener('click', function () {
         var isDisplayed = window.getComputedStyle(rulesContent).display !== 'none';
         rulesContent.style.display = isDisplayed ? 'none' : 'block';
     });

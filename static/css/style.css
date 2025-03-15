@@ -1,539 +1,537 @@
 /*root for the HTML*/
-:root{
-    --primary-color: #6fe3e3;
-    --bg-color: #efefef;
-    /* --light-bg-color: #B3AEA8; */
-    --light-bg-color: #cac5bf;
-    --text-color: #231F20;
-    --light-text-color: #646368;
-    --primary-text-color: #ffffff;
-    --other-color: #bebdbd;
-    --another-color: #738290;
+:root {
+  --primary-color: #6fe3e3;
+  --bg-color: #efefef;
+  /* --light-bg-color: #B3AEA8; */
+  --light-bg-color: #cac5bf;
+  --text-color: #231f20;
+  --light-text-color: #646368;
+  --primary-text-color: #ffffff;
+  --other-color: #bebdbd;
+  --another-color: #738290;
+}
 
+.disabled-button {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #ccc;
 }
 
 @font-face {
-    font-family: Baybayin;
-    src: url(BaybayinDoctrina.otf);
+  font-family: Baybayin;
+  src: url(BaybayinDoctrina.otf);
 }
 
 /* for the elements of HTML*/
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', 'BaybayinDoctrinaClear', 'BaybayinDoctrinaKudlit',sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "BaybayinDoctrinaClear", "BaybayinDoctrinaKudlit",
+    sans-serif;
 }
 
 /* body of the HTML*/
-body{
-    margin-top: 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-} 
+body {
+  margin-top: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
 
 .navbar {
-    background-color: #333;
-    padding: 10px;
-    height: 60px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between; /* Updated from 'space-between' to 'start' */
-    align-items: center;
-    z-index: 1000;
+  background-color: #333;
+  padding: 10px;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Updated from 'space-between' to 'start' */
+  align-items: center;
+  z-index: 1000;
 }
 
 .navbar-logo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo img {
-    max-height: 35px;
-    margin-top: 10px; /* Add margin between logo and text */
+  max-height: 35px;
+  margin-top: 10px; /* Add margin between logo and text */
 }
 
-
-
 .nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
 .nav-links li {
-    margin-right: 20px; /* Adjust the spacing between menu items */
+  margin-right: 20px; /* Adjust the spacing between menu items */
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: white; /* Set the color of the menu items */
-    font-weight: bold;
-    font-size: 16px; /* Adjust the font size of the menu items */
+  text-decoration: none;
+  color: white; /* Set the color of the menu items */
+  font-weight: bold;
+  font-size: 16px; /* Adjust the font size of the menu items */
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
 /* Add a hover effect to the menu items if desired */
 .nav-links a:hover {
-    color: #FFD700; /* Set the color when hovering */
+  color: #ffd700; /* Set the color when hovering */
 }
 
 /* container div */
-.container{
-    position: relative;
-    width: 1500px;
-    margin-top: 120px;
-    padding: 0 20px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-
+.container {
+  position: relative;
+  width: 1500px;
+  margin-top: 120px;
+  padding: 0 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* creating the card */
-.container .card{
-    margin-top: -5em;
-    width: 40em;
-    height: 440px;
-    padding: 30px;
-    border-radius: 20px;
-    background-color: var(--light-bg-color)
-    /* background: url('images/bgcarto.png') center/cover no-repeat var(--bg-color);
+.container .card {
+  margin-top: -5em;
+  width: 40em;
+  height: 440px;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: var(--light-bg-color);
+  /* background: url('images/bgcarto.png') center/cover no-repeat var(--bg-color);
     overflow: hidden; Hide overflowing content */
 }
 
 /* the heading of the card */
-.card .from, .card .to{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: lighter;
+.card .from,
+.card .to {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: lighter;
 }
 
 /* heading of the card */
-.card .heading{
-    font-size: 0.08rem;
-    font-weight: 600;
-    color: var(--light-text-color);
-    white-space: nowrap;
+.card .heading {
+  font-size: 0.08rem;
+  font-weight: 600;
+  color: var(--light-text-color);
+  white-space: nowrap;
 }
 
 #input-text {
-    text-transform: uppercase;
-    color:var(--text-color);
+  text-transform: uppercase;
+  color: var(--text-color);
 }
 
 #output-text {
-    text-transform: uppercase;
-    color:var(--text-color);
+  text-transform: uppercase;
+  color: var(--text-color);
 }
 
-
 /*dropdown-container */
-.dropdown-container{
-    position: relative;
-    margin-bottom: 10px;
-    width: 100%;
+.dropdown-container {
+  position: relative;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 /* dropdown-toggle */
-.dropdown-container .dropdown-toggle{
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    border-radius: 30px;
-    background: var(--bg-color);
-    cursor: pointer;
-    transition: all 0.3s;
-
+.dropdown-container .dropdown-toggle {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: var(--bg-color);
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 /* span */
-.dropdown-container .dropdown-toggle span{
-    flex: 1;
-    margin-left: 10px;   
+.dropdown-container .dropdown-toggle span {
+  flex: 1;
+  margin-left: 10px;
 }
 
 /* icon position */
-.dropdown-container .dropdown-toggle ion-icon{
-    font-size: 1.3rem;
-    transition: transform 0.3 ease;
+.dropdown-container .dropdown-toggle ion-icon {
+  font-size: 1.3rem;
+  transition: transform 0.3 ease;
 }
 
 /* position of the active script */
-.dropdown-container.active .dropdown-toggle{
-    border-radius: 20px 20px 0 0;
+.dropdown-container.active .dropdown-toggle {
+  border-radius: 20px 20px 0 0;
 }
 
 /* dropdown-menu */
-.dropdown-container .dropdown-menu{
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 130px;
-    overflow: auto;
-    display: none;
-    padding: 20px;
-    z-index: 1;
-    list-style-type: none;  
-    flex-direction: column;
-    background-color: var(--bg-color);
-    transition: all 0.3s;
-    border-radius: 0 0 20px 20px;
+.dropdown-container .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 130px;
+  overflow: auto;
+  display: none;
+  padding: 20px;
+  z-index: 1;
+  list-style-type: none;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  transition: all 0.3s;
+  border-radius: 0 0 20px 20px;
 }
 
 /* dropdown scrollbar */
-.dropdown-container .dropdown-menu::-webkit-scrollbar{
-    display: none;
+.dropdown-container .dropdown-menu::-webkit-scrollbar {
+  display: none;
 }
 
 /*dropdown menu active */
-.dropdown-container.active .dropdown-menu{
-    display: flex;
+.dropdown-container.active .dropdown-menu {
+  display: flex;
 }
 
 /* for the list itself */
-.dropdown-container.active .dropdown-menu li{
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-bottom: 5px;
-    border-bottom: 1px groove var(--bg-color);
-    transition: all 0.3s;
+.dropdown-container.active .dropdown-menu li {
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  border-bottom: 1px groove var(--bg-color);
+  transition: all 0.3s;
 }
 
 /* the active choice */
-.dropdown-container.active .dropdown-menu li.active{
-    color: var(--primary-text-color);
-    background-color: var(--another-color);
+.dropdown-container.active .dropdown-menu li.active {
+  color: var(--primary-text-color);
+  background-color: var(--another-color);
 }
 
 /* when hovering the scripts selection aka the li */
-.dropdown-container.active .dropdown-menu li:not(.active):hover{
-    color: var(--primary-text-color);
-    background-color: var(--light-bg-color);
+.dropdown-container.active .dropdown-menu li:not(.active):hover {
+  color: var(--primary-text-color);
+  background-color: var(--light-bg-color);
 }
 
 /* text-area position*/
-.container .text-area{
-    position: relative;
-    height: 330px;
+.container .text-area {
+  position: relative;
+  height: 330px;
 }
 
 /* text area itself */
-.container textarea{
-    width: 100%;
-    height: 230px;
-    padding: 20px;
-    margin: 10px 0;
-    background-color: transparent;
-    outline: none;
-    border: none;
-    color: var(--text-color);
-    font-size: 20px;
+.container textarea {
+  width: 100%;
+  height: 230px;
+  padding: 20px;
+  margin: 10px 0;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 20px;
 }
 
 /* characters position */
-.container .text-area .chars{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 10px;
-    font-size: 0.8rem;
-    color: var(--light-text-color);
+.container .text-area .chars {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  font-size: 0.8rem;
+  color: var(--light-text-color);
 }
 
 /* separator b/w the text nd the or choose */
-.card-bottom{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 20px;
-    border-top: 2px solid var(--other-color);
+.card-bottom {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 20px;
+  border-top: 2px solid var(--other-color);
 }
 
 /* card bottom p */
-.card-bottom p{
-    font-size: 13px;
-    margin-bottom: 20px;
+.card-bottom p {
+  font-size: 13px;
+  margin-bottom: 20px;
 }
 
 /* card bottom label, the or choose photo stuff.... */
-.card-bottom label{
-    height: 50px;
-    display: flex;
-    align-items: center;
-    gap: 0 10px;
-    padding: 0 20px;
-    cursor: pointer;
-    border-radius: 20px;
-    background-color: var(--bg-color);
+.card-bottom label {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0 10px;
+  padding: 0 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: var(--bg-color);
 }
 
 /* hovering the label */
-.card-bottom label:hover{
-    color: var(--primary-text-color);
-    background-color: var(--another-color);
+.card-bottom label:hover {
+  color: var(--primary-text-color);
+  background-color: var(--another-color);
 }
 
 /* card bottom span */
-.card-bottom span{
-    font-size: 15px;
-    pointer-events: none;
+.card-bottom span {
+  font-size: 15px;
+  pointer-events: none;
 }
 
 /* icon size */
-.card-bottom ion-icon{
-    font-size: 25px;
+.card-bottom ion-icon {
+  font-size: 25px;
 }
 
 /* button icon */
-.card-bottom button{
-    height: 50px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 0 20px;
-    border-radius: 20px;
-    border: none;
-    outline: none;
-    color: var(--text-color);
-    cursor: pointer;
-    background-color: var(--bg-color);
+.card-bottom button {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  cursor: pointer;
+  background-color: var(--bg-color);
 }
 
 /* hovering the button */
-.card-bottom button:hover{
-    color: var(--primary-text-color);
-    background-color: var(--another-color);
+.card-bottom button:hover {
+  color: var(--primary-text-color);
+  background-color: var(--another-color);
 }
 
 /* center div */
-.container .center{
-    position: relative;
+.container .center {
+  position: relative;
 }
 
 /* swap icon */
-.swap-position{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: -3.2em;
-    left: 50%;
-    transform: translateX(-50%) scale(1.1);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s;
-    color: var(--primary-text-color);
-    background-color: var(--another-color);
+.swap-position {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -3.2em;
+  left: 50%;
+  transform: translateX(-50%) scale(1.1);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--primary-text-color);
+  background-color: var(--another-color);
 }
 
 /* icon size of swap */
-.swap-position ion-icon{
-    font-size: 25px;
+.swap-position ion-icon {
+  font-size: 25px;
 }
 
 /* hovering swap */
-.swap-position:hover{
-    color: var(--text-color);
-    background-color: var(--primary-color);
+.swap-position:hover {
+  color: var(--text-color);
+  background-color: var(--primary-color);
 }
 
 /* keyboard layout */
-.card-baybayin-keyboard{
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.card-baybayin-keyboard {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* buttons background */
-.card-baybayin-keyboard button{
-    background-color: var(--text-color);
-    border: none;
-    display: inline-block;
-    padding: .5rem 1rem;
-    margin: .3rem;
-    font-size: 15px;
-    color: var(--primary-text-color);
-    width: 60px;
-    height: 60px;
-    border-radius: .5rem;
+.card-baybayin-keyboard button {
+  background-color: var(--text-color);
+  border: none;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  font-size: 15px;
+  color: var(--primary-text-color);
+  width: 60px;
+  height: 60px;
+  border-radius: 0.5rem;
 }
 
 /* when hovering the button */
-.card-baybayin-keyboard button:hover{
-    background-color: var(--another-color);
-    color: var(--primary-text-color);
+.card-baybayin-keyboard button:hover {
+  background-color: var(--another-color);
+  color: var(--primary-text-color);
 }
 
 /* fixing the size of the space button */
-.card-baybayin-keyboard .row .space{
-    width: 200px;
+.card-baybayin-keyboard .row .space {
+  width: 200px;
 }
 
 /* Baybayin character styling */
 .baybayin-char {
-    display: block; /* Ensures the Latin script appears on the next line */
-    font-size: 1.5em; /* Adjust size as needed */
-    font-family: 'BaybayinDoctrinaClear', sans-serif; /* Use your custom font and fallbacks */
+  display: block; /* Ensures the Latin script appears on the next line */
+  font-size: 1.5em; /* Adjust size as needed */
+  font-family: "BaybayinDoctrinaClear", sans-serif; /* Use your custom font and fallbacks */
 }
 
 .baybayin-char-logo {
-    display: block; /* Ensures the Latin script appears on the next line */
-    font-size: 2.8em; /* Adjust size as needed */
-    font-family: 'BaybayinDoctrinaClear', sans-serif; /* Use your custom font and fallbacks */
-    color: #ffffff;
-    margin-right: 3px;
-    margin-bottom: 7px;
-    margin-left: 10px;
+  display: block; /* Ensures the Latin script appears on the next line */
+  font-size: 2.8em; /* Adjust size as needed */
+  font-family: "BaybayinDoctrinaClear", sans-serif; /* Use your custom font and fallbacks */
+  color: #ffffff;
+  margin-right: 3px;
+  margin-bottom: 7px;
+  margin-left: 10px;
 }
 
 .baybayin-kudlit {
-    display: block; /* Ensures the Latin script appears on the next line */
-    font-size: 1.5em; /* Adjust size as needed */
-    font-family: 'BaybayinDoctrinaKudlit', sans-serif; /* Use your custom font and fallbacks */
+  display: block; /* Ensures the Latin script appears on the next line */
+  font-size: 1.5em; /* Adjust size as needed */
+  font-family: "BaybayinDoctrinaKudlit", sans-serif; /* Use your custom font and fallbacks */
 }
 
 /* Latin script styling */
 .card-baybayin-keyboard .row .latin-script {
-    display: block; /* Ensures it appears on a new line */
-    margin-top: 0.5em;
-    font-size: 0.7em; /* Smaller font size */
-    line-height: 1; /* Adjust spacing as needed */
+  display: block; /* Ensures it appears on a new line */
+  margin-top: 0.5em;
+  font-size: 0.7em; /* Smaller font size */
+  line-height: 1; /* Adjust spacing as needed */
 }
-
-
 
 /* delete button */
 .card-baybayin-keyboard .row .del {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .toggle-keyboard-button {
-    padding: 10px;
-    background-color: #3498db;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    background-color: var(--text-color);
-    color: var(--primary-text-color);
-    justify-content: center;
-    width: 200px;
-    align-self: center;
-    margin: 15px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    transition: background-color 0.3s ease-in-out;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  background-color: var(--text-color);
+  color: var(--primary-text-color);
+  justify-content: center;
+  width: 200px;
+  align-self: center;
+  margin: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .toggle-keyboard-button:hover {
-    background-color: var(--another-color);
-    color: var(--primary-text-color);
+  background-color: var(--another-color);
+  color: var(--primary-text-color);
 }
 
 .card-baybayin-keyboard {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-    flex-basis: 100%; /* Set flex-basis to 100% to make it take the full width on a new line */
-    margin-top: 10px; /* Add margin to separate it from the previous item */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  flex-basis: 100%; /* Set flex-basis to 100% to make it take the full width on a new line */
+  margin-top: 10px; /* Add margin to separate it from the previous item */
 }
 
 /* Add a class to show the keyboard */
 .card-baybayin-keyboard.visible {
-    max-height: 1000px; /* Adjust the height as needed */
+  max-height: 1000px; /* Adjust the height as needed */
 }
 
-#keyboard-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    margin: 10px;
-    margin-top: 20px;
+#keyboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 10px;
+  margin-top: 20px;
 }
 
-.same-line-button{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
+.same-line-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
 }
 
 /* About Page */
- 
+
 .about-container {
-    text-align: center; /* Centers text elements */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers block-level elements */
+  text-align: center; /* Centers text elements */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers block-level elements */
 }
 
 .imik-container {
-    text-align: center; /* Centers text elements */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers block-level elements */
-    width: 60em;
-    margin-top: 40px;
-    margin-bottom: -10px;
+  text-align: center; /* Centers text elements */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers block-level elements */
+  width: 60em;
+  margin-top: 40px;
+  margin-bottom: -10px;
 }
 
 .mission-container {
-    text-align: center; /* Centers text elements */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers block-level elements */
-    width: 600em;
-    margin-top: 0;
+  text-align: center; /* Centers text elements */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers block-level elements */
+  width: 600em;
+  margin-top: 0;
 }
 
-
 .about-mission {
-    margin-top: 1.5em;
+  margin-top: 1.5em;
 }
 
 .our-team {
-    margin-top: 1.5em;
-    margin-bottom: 2em;
+  margin-top: 1.5em;
+  margin-bottom: 2em;
 }
-
 
 /* Rules pop-down content styling */
 .rules-menu {
-    position: relative; /* Position relative to allow absolute positioning of the pop-down */
+  position: relative; /* Position relative to allow absolute positioning of the pop-down */
 }
 /* NOT SCROLLABLE */
 .rules-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9; 
-    min-width: 535px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
-    z-index: 1;
-    border-radius: 5px; 
-    padding: 12px 16px; 
-    margin-left: -255px;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 535px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  padding: 12px 16px;
+  margin-left: -255px;
 }
 /* SCROLLABLE */
 /* .rules-content {
@@ -551,46 +549,46 @@ a{
 } */
 
 .rules-menu:hover .rules-content {
-    display: block; 
+  display: block;
 }
 
-
 .rules-content h4 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .rules-content ul {
-    list-style-type: disc;
-    padding-left: 20px;
+  list-style-type: disc;
+  padding-left: 20px;
 }
 /* max width when you move your browser? */
-@media(max-width: 800px){
-    .container{
-        width: 100%;
-        margin-top: 20px;
-        flex-direction: column;
-    }
-    .container .card{
-        width: 100%;
-    }
-    .container .card .from{
-        margin-right: 0;
-    }
-    .container .card .to{
-        margin-left: 0;
-    }
-    .container .card .from, .container .card .to{
-        flex-direction: column;
-    }
-    .swap-position{
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .swap-position:hover{
-        transform: translate(-50%, -50%) scale (1.1);
-    }
-    .swap-position ion-icon{
-        transform: rotate(90deg);
-    }
+@media (max-width: 800px) {
+  .container {
+    width: 100%;
+    margin-top: 20px;
+    flex-direction: column;
+  }
+  .container .card {
+    width: 100%;
+  }
+  .container .card .from {
+    margin-right: 0;
+  }
+  .container .card .to {
+    margin-left: 0;
+  }
+  .container .card .from,
+  .container .card .to {
+    flex-direction: column;
+  }
+  .swap-position {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .swap-position:hover {
+    transform: translate(-50%, -50%) scale (1.1);
+  }
+  .swap-position ion-icon {
+    transform: rotate(90deg);
+  }
 }
