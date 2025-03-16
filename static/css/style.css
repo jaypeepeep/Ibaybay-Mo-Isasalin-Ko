@@ -67,17 +67,6 @@ body {
   margin-top: 10px; /* Add margin between logo and text */
 }
 
-.baybayin-chart {
-  text-align: center; /* Centers the chart */
-  margin-top: 20px; /* Adds some spacing */
-}
-
-.baybayin-chart img {
-  width: 50%; /* Adjust size as needed */
-  max-width: 300px; /* Prevents it from getting too large */
-  height: auto; /* Maintains aspect ratio */
-}
-
 .nav-links {
   list-style: none;
   margin: 0;

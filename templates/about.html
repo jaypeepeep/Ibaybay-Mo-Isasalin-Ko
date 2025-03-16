@@ -1,102 +1,121 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link href="static/css/BaybayinDoctrinaClear.ttf" rel="stylesheet" />
+    <link href="static/css/BaybayinDoctrinaClear.otf" rel="stylesheet" />
+    <link href="static/css/BaybayinDoctrinaKudlit.otf" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tagalog&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>Isulat mo, Ibaybay ko</title>
+    <style>
+      @font-face {
+        font-family: "BaybayinDoctrinaClear";
+        src: url("static/css/BaybayinDoctrinaClear.ttf") format("truetype"),
+          url("static/css/BaybayinDoctrinaClear.otf") format("opentype");
+      }
+      @font-face {
+        font-family: "BaybayinDoctrinaKudlit";
+        src: url("static/css/BaybayinDoctrinaKudlit.ttf") format("truetype");
+      }
+    </style>
+  </head>
 
-        <link href="static/css/BaybayinDoctrinaClear.ttf" rel="stylesheet">
-        <link href="static/css/BaybayinDoctrinaClear.otf" rel="stylesheet">
-        <link href="static/css/BaybayinDoctrinaKudlit.otf" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tagalog&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-        <title>Isulat mo, Ibaybay ko</title>
-        <style>
-            @font-face {
-                font-family: 'BaybayinDoctrinaClear';
-                src: url('static/css/BaybayinDoctrinaClear.ttf') format('truetype'),
-                    url('static/css/BaybayinDoctrinaClear.otf') format('opentype');
-            }
-            @font-face {
-                font-family: 'BaybayinDoctrinaKudlit';
-                src: url('static/css/BaybayinDoctrinaKudlit.ttf') format('truetype');
-            }
-        </style>
-    </head>
+  <body>
+    <!-- Same navbar code as index.html -->
 
-<body>
+    <nav class="navbar">
+      <!-- Logo -->
 
-  <!-- Same navbar code as index.html -->
-
-  <nav class="navbar">
-    <!-- Logo -->
-    
-    <div class="navbar-logo">
+      <div class="navbar-logo">
         <a href="{{ url_for('index') }}">
-            <p class="baybayin-char-logo">A</p>
+          <p class="baybayin-char-logo">A</p>
         </a>
         <a href="{{ url_for('index') }}">
-            <div class="logo">
-                <img src="{{ url_for('static', filename='css/images/logo3.png') }}" alt="Logo">
-            </div>
+          <div class="logo">
+            <img
+              src="{{ url_for('static', filename='css/images/logo3.png') }}"
+              alt="Logo"
+            />
+          </div>
         </a>
-    </div>
+      </div>
 
-
-    <!-- Navigation Links -->
-    <ul class="nav-links">
+      <!-- Navigation Links -->
+      <ul class="nav-links">
         <li><a href="{{ url_for('index') }}">Home</a></li>
-        <li><a href="{{ url_for('practice') }}">Let's Practice!</a></li>
+        <li><a href="{{ url_for('practice') }}">Baybayin Pad</a></li>
         <li><a href="{{ url_for('about') }}">About</a></li>
-        
-    </ul>
-</nav>
+      </ul>
+    </nav>
 
-  <div class="about-container">
+    <div class="about-container">
+      <div class="imik-container">
+        <h2>About IMIK</h2>
+        <p>
+          Ibaybay mo, Isasalin ko, is a web application that allows <br />
+          transliteration between Latin script and Baybayin, an ancient
+          Philippine script. <br />
+          It employs symbols from the modernized version while adhering to the
+          pre-Hispanic <br />
+          rules of the script. Explore the beauty and cultural richness of
+          Baybayin, <br />
+          seamlessly blending tradition with contemporary elements.
+        </p>
+      </div>
 
-    <div class="imik-container">
-      <h2>About IMIK</h2>
-      <p>
-        Ibaybay mo, Isasalin ko, is a web application that allows <br>
-        transliteration between Latin script and Baybayin, an ancient Philippine script. <br>
-        It employs symbols from the modernized version while adhering to the pre-Hispanic <br>
-        rules of the script. Explore the beauty and cultural richness of Baybayin, <br>
-        seamlessly blending tradition with contemporary elements.
-      </p>
+      <div class="mission-container">
+        <h2 class="about-mission">Our Mission</h2>
+        <p>
+          Our goal with this project is to develop a web application that
+          transliterates <br />
+          between the Latin script and Baybayin script. We aim to apply concepts
+          from automata <br />
+          theory, specifically pushdown automata, which is incorporated in both
+          transliterations. <br />
+          Our objective is to enhance appreciation and understanding of the
+          ancient Baybayin <br />
+          script by making it accessible for people to read and write this
+          script from our past.
+        </p>
+      </div>
+
+      <div class="our-team">
+        <h2>Our Team</h2>
+        <p>
+          We are computer science students at the Polytechnic University of the
+          Philippines <br />
+          taking the Automata and Language Theory course. Our team members are:
+        </p>
+        <p><br />John Mark Peroche</p>
+        <p>John Patrick Lagatuz</p>
+        <p>Kurt Denver Torreda</p>
+        <p>Nichole Alpapara</p>
+      </div>
+
+      <!-- Other about page content -->
     </div>
-    
-    <div class="mission-container">
-      <h2 class="about-mission">Our Mission</h2>
-      <p>
-        Our goal with this project is to develop a web application that transliterates <br>
-        between the Latin script and Baybayin script. We aim to apply concepts from automata <br>
-        theory, specifically pushdown automata, which is incorporated in both transliterations. <br>
-        Our objective is to enhance appreciation and understanding of the ancient Baybayin <br>
-        script by making it accessible for people to read and write this script from our past.
-      </p>
-    </div>
-    
-    <div class="our-team">
-      <h2>Our Team</h2>
-      <p>
-        We are computer science students at the Polytechnic University of the Philippines <br>
-        taking the Automata and Language Theory course. Our team members are:
-      </p>
-      <p><br>John Mark Peroche</p>
-      <p>John Patrick Lagatuz</p>
-      <p>Kurt Denver Torreda</p>
-      <p>Nichole Alpapara</p>
-    </div>
-    
-
-    <!-- Other about page content -->
-
-  </div>
-
-</body>
-
+  </body>
 </html>

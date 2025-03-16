@@ -73,40 +73,41 @@
       </ul>
     </nav>
     <main>
-      <div id="canvasContainer">
-        <canvas id="topCanvas"></canvas>
-        <hr id="breaklines" />
-        <canvas id="centerCanvas"></canvas>
-        <hr id="breaklines" />
-        <canvas id="bottomCanvas"></canvas>
-      </div>
-      <div id="canvasOutput">
-        <h1>Let's write</h1>
-        <div id="text-cont">
-          <h2>Output:</h2>
-          <div id="output-text-container">
-            <h1 id="output-text"></h1>
+      <div id="canvas">
+        <div id="canvasContainer">
+          <canvas id="topCanvas"></canvas>
+          <hr id="breaklines" />
+          <canvas id="centerCanvas"></canvas>
+          <hr id="breaklines" />
+          <canvas id="bottomCanvas"></canvas>
+        </div>
+        <div id="canvasOutput">
+          <h1>Let's write</h1>
+          <div id="text-cont">
+            <h2>Output:</h2>
+            <div id="output-text-container">
+              <h1 id="output-text"></h1>
+            </div>
+          </div>
+          <div id="buttons">
+            <button class="toggle-keyboard-button" id="enter-button">
+              Enter
+            </button>
+            <button class="toggle-keyboard-button" id="clear-button">
+              Clear
+            </button>
           </div>
         </div>
-        <div id="buttons">
-          <button class="toggle-keyboard-button" id="enter-button">
-            Enter
-          </button>
-          <button class="toggle-keyboard-button" id="clear-button">
-            Clear
-          </button>
-        </div>
+      </div>
+      <div id="baybayinChart">
+        <h2>Baybayin Chart</h2>
+        <img
+          src="{{ url_for('static', filename='css/images/BaybayinChart.jpg') }}"
+          alt="Baybayin Chart"
+        />
       </div>
     </main>
-    {% comment %}
-    <div class="baybayin-chart">
-      <h2>Baybayin Chart</h2>
-      <img
-        src="{{ url_for('static', filename='css/images/BaybayinChart.jpg') }}"
-        alt="Baybayin Chart"
-      />
-    </div>
-    {% endcomment %}
+
     <script src="{{ url_for('static', filename='script/languages.js') }}"></script>
     <script src="{{ url_for('static', filename='script/script.js') }}"></script>
     <script src="{{ url_for('static', filename='script/practice.js') }}"></script>
