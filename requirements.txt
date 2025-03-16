@@ -1,1 +1,7 @@
 flask
+Pillow
+joblib
+opencv-python
+scikit-learn
+pandas
+matplotlib
