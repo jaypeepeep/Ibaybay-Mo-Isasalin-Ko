@@ -222,5 +222,9 @@ def resize_image(image, size):
     return resized_image
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    if os.name == 'nt':  # Windows
+        from waitress import serve
+        serve(app, host='0.0.0.0', port=5000)
+    else:  # Render (Linux)
+        app.run(debug=False)
